@@ -32,11 +32,7 @@
 
 自分のパソコン上に、challenge5というフォルダを作って、その中に`index.html` `styles.css` 、 `main.js` というファイルをそれぞれ作成しましょう。それぞれのファイルには以下のスターターファイルの内容をコピーして下さい。
 
-- [index.html](./student/index.html)
-
-- [styles.css](./student/styles.css)
-
-- [main.js](./student/main.js)
+- [codegrit-js-unit01-ch05-starter](https://github.com/codegrit-jp-students/codegrit-js-unit01-ch05-starter)
 
 ## マイルストーン１
 
