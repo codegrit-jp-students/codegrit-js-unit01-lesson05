@@ -2,7 +2,7 @@
 
 イベントとは、レッスン4で学んだDOMとDOM APIと合わせて使うことが多く、マウスのクリック、キーボードへの入力や、タッチ、ブラウザの拡大や縮小など、document(ブラウザ)に対してユーザーが行う様々なアクションのことを指します。
 
-レッスン4の終わりでは`paragraph`と言うCSSセレクタのある要素全てに、テキストにスタイルを付けたり外したりするボタンを実装し、data属性を呼び出しました。
+レッスン4の終わりでは`addStyle`と言うCSSセレクタのある要素全てに、テキストにスタイルを付けたり外したりするボタンを実装し、data属性を呼び出しました。
 
 この状態ではボタンは機能がないので、実際にクリックすることでスタイルを付けたりリセットしたりできる機能、つまり「イベント」を実装していきましょう。
 
@@ -11,16 +11,16 @@
 もっともメジャーなイベントが**clickイベント**です。
 特にレッスン4から作成している機能自体もボタンなので、クリックを着火剤（**trigger**と言います）としてイベントを発動（**fire**と言います）させることに利用します。
 
-現在の状態は、ボタンと`paragraph`と言う関数はまだ紐づいていない状態で、イベントで結びつける必要があります。
+現在の状態は、ボタンと`addStyle`と言う関数はまだ紐づいていない状態で、イベントで結びつける必要があります。
 
 ```html
 <p>I'm the first one.</p>
 <p>And I'm the second one.</p>
 
-<button data-action="paragraph">
+<button data-action="addStyle">
   文字色と太さが変わる
 </button>
-<button data-action="removeParagraphStyle">
+<button data-action="resetStyle">
   文字色と太さをリセット
 </button>
 ```
@@ -53,7 +53,7 @@ function paragraphReset() {
 
 ////// 今回実装した箇所 //////
 // スタイル追加ボタン
-const paragraphAction = document.querySelectorAll('[data-action="paragraph"]');
+const paragraphAction = document.querySelectorAll('[data-action="addStyle"]');
 
 for (let button of paragraphAction) {
   button.addEventListener('click', evt => {
@@ -63,7 +63,7 @@ for (let button of paragraphAction) {
 }
 
 // スタイルリセットボタン
-const paragraphResetAction = document.querySelectorAll('[data-action="removeParagraphStyle"]');
+const paragraphResetAction = document.querySelectorAll('[data-action="resetStyle"]');
 
 for (let button of paragraphResetAction) {
   button.addEventListener('click', evt => {
@@ -74,6 +74,8 @@ for (let button of paragraphResetAction) {
 ```
 
 ![alt event.gif](images/event.gif)
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/qg9eojvu/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 `addEventListener`は全ての要素が持っているメソッドで、イベントが起こった時に呼ぶ関数を指定する役割を持ちます。
 イベントを実装することによって、HTMLやCSSを書き換えるだけでコンテンツが変化しても機能を保つ事ができるようになります。
